@@ -104,6 +104,7 @@ productSchema.methods.logger = function () {
 // MODAL
 const Product = mongoose.model("Product", productSchema);
 
+// SAVE A PRODUCT
 app.post("/api/v1/product", async (req, res, next) => {
 	try {
 		// FIRST WAY FOR THE POST DATA - ( SAVE ) METHOD
@@ -125,6 +126,41 @@ app.post("/api/v1/product", async (req, res, next) => {
 		res.status(400).json({
 			status: "Failed",
 			message: "Data is't inserted",
+			error: error.message,
+		});
+	}
+});
+
+// GET PRODUCTS / PRODUCT
+app.get("/api/v1/product", async (req, res, next) => {
+	try {
+		// ALL RPODUCTS
+		// const products = await Product.find({});
+
+		// GET A SINGLE PRODUCT BY ID
+		// const product = await Product.find({ name: "Dall" });
+
+		// FIND PRODUCT OR OPARETOR
+		// const product = await Product.find({
+		// 	$or: [{ _id: "6322b419107bef27c8460770" }, { price: 50 }],
+		// });
+
+		// FIND PRODUCT NOT EQUAL out-of-stock ($ne: "out-of-stock")
+		/**
+		 * Greater then / Greater then or equal - $gt / $gte
+		 * Less then / less then or equal - $lt / $lte
+		 * if name is Dall/Chal {name: {$in: ["Dall", "Chal"]}}
+		 */
+		const product = await Product.find({ status: { $ne: "out-of-stock" } });
+
+		res.status(200).json({
+			status: "sussess",
+			data: product,
+		});
+	} catch (error) {
+		res.status(400).json({
+			status: "Failed",
+			message: "Can't get data",
 			error: error.message,
 		});
 	}
