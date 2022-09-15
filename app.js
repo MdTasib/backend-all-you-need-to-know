@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const colors = require("colors");
 // const { connectToServer } = require("./utils/dbConnect");
 
 // MIDDLEWARES
@@ -78,21 +79,42 @@ const productSchema = mongoose.Schema(
 	}
 );
 
+// MONGOOSE MIDDLEWARES FOR SAVEING DATA: PRE / POST
+productSchema.pre("save", function (next) {
+	console.log("Before product created".bgGreen);
+
+	if (this.quantity === 0) {
+		this.status = "out-of-stock";
+	}
+
+	next();
+});
+
+// MONGOOSE MIDDLEWARES FOR SAVEING DATA: PRE / POST
+productSchema.post("save", function (doc, next) {
+	console.log("After product created".bgGreen);
+	next();
+});
+
+// INSTANCE METHODS - OPTIONAL
+productSchema.methods.logger = function () {
+	console.log(`Data saved for ${this.name}`.bgGreen);
+};
+
 // MODAL
 const Product = mongoose.model("Product", productSchema);
 
-app.get("/", (req, res) => {
-	res.send("Route is working! YaY!");
-});
-
 app.post("/api/v1/product", async (req, res, next) => {
 	try {
-		// First way for the post data - ( save ) method
-		// const product = new Product(req.body);
-		// const result = await product.save();
+		// FIRST WAY FOR THE POST DATA - ( SAVE ) METHOD
+		const product = new Product(req.body);
+		const result = await product.save();
 
-		// Second way for the post data - ( create ) method
-		const result = await Product.create(req.body);
+		// INSTANCE METHODS - OPTIONAL
+		result.logger();
+
+		// SECOND WAY FOR THE POST DATA - ( CREATE ) METHOD
+		// const result = await Product.create(req.body);
 
 		res.status(200).json({
 			status: "success",
@@ -106,6 +128,10 @@ app.post("/api/v1/product", async (req, res, next) => {
 			error: error.message,
 		});
 	}
+});
+
+app.get("/", (req, res) => {
+	res.send("Route is working! YaY!");
 });
 
 // NOT FOUND ROUTE
