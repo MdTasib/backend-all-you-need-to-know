@@ -8,15 +8,6 @@ const mongoose = require("mongoose");
 app.use(express.json());
 app.use(cors());
 
-// DB CALL
-// connectToServer(err => {
-// 	if (!err) {
-// 		app.listen(5000, () => console.log("Port 5000 server running"));
-// 	} else {
-// 		console.log("DB DON'T CONNECTED");
-// 	}
-// });
-
 // SCHEMA DESIGN
 const productSchema = mongoose.Schema(
 	{
@@ -94,10 +85,27 @@ app.get("/", (req, res) => {
 	res.send("Route is working! YaY!");
 });
 
-app.post("/api/v1/product", (req, res, next) => {
-	const product = new Product(req.body);
+app.post("/api/v1/product", async (req, res, next) => {
+	try {
+		// First way for the post data - ( save ) method
+		// const product = new Product(req.body);
+		// const result = await product.save();
 
-	product.save();
+		// Second way for the post data - ( create ) method
+		const result = await Product.create(req.body);
+
+		res.status(200).json({
+			status: "success",
+			message: "Data inserted successfully",
+			data: result,
+		});
+	} catch (error) {
+		res.status(400).json({
+			status: "Failed",
+			message: "Data is't inserted",
+			error: error.message,
+		});
+	}
 });
 
 // NOT FOUND ROUTE
