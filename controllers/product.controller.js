@@ -1,4 +1,8 @@
 const Product = require("../models/Product");
+const {
+	getProductService,
+	createProductService,
+} = require("../services/product.services");
 
 const getProduct = async (req, res, next) => {
 	try {
@@ -19,7 +23,7 @@ const getProduct = async (req, res, next) => {
 		 * Less then / less then or equal - $lt / $lte
 		 * if name is Dall/Chal {name: {$in: ["Dall", "Chal"]}}
 		 */
-		const product = await Product.find({ status: { $ne: "out-of-stock" } });
+		const product = await getProductService();
 
 		res.status(200).json({
 			status: "sussess",
@@ -37,8 +41,7 @@ const getProduct = async (req, res, next) => {
 const createProduct = async (req, res, next) => {
 	try {
 		// FIRST WAY FOR THE POST DATA - ( SAVE ) METHOD
-		const product = new Product(req.body);
-		const result = await product.save();
+		const result = await createProductService(req.body);
 
 		// INSTANCE METHODS - OPTIONAL
 		result.logger();
