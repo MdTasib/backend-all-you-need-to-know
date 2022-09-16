@@ -2,6 +2,7 @@ const Product = require("../models/Product");
 const {
 	getProductService,
 	createProductService,
+	updateProductService,
 } = require("../services/product.services");
 
 const getProduct = async (req, res, next) => {
@@ -46,9 +47,6 @@ const createProduct = async (req, res, next) => {
 		// INSTANCE METHODS - OPTIONAL
 		result.logger();
 
-		// SECOND WAY FOR THE POST DATA - ( CREATE ) METHOD
-		// const result = await Product.create(req.body);
-
 		res.status(200).json({
 			status: "success",
 			message: "Data inserted successfully",
@@ -63,4 +61,22 @@ const createProduct = async (req, res, next) => {
 	}
 };
 
-module.exports = { getProduct, createProduct };
+const updateProduct = async (req, res, next) => {
+	try {
+		const { id } = req.params;
+		const result = await updateProductService(id, req.body);
+
+		res.status(200).json({
+			status: "success",
+			message: "Updated successfully",
+		});
+	} catch (error) {
+		res.status(400).json({
+			status: "Failed",
+			message: "Couldn't update product",
+			error: error.message,
+		});
+	}
+};
+
+module.exports = { getProduct, createProduct, updateProduct };
