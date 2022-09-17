@@ -29,9 +29,42 @@ const updateProductService = async (id, data) => {
 };
 
 const bulkUpdateProductService = async data => {
-	const result = await Product.updateMany({ _id: data.ids }, data.data, {
-		runValidators: true,
+	// Bulk update for multiple product same price
+	/* {
+		"ids": [
+			"6322b419107bef27c8460770",
+			"6322bbc4f886271aac1f86fc"
+		],
+		"data": {
+			"price": 150
+		}
+	} */
+	// const result = await Product.updateMany({ _id: data.ids }, data.data, {
+	// 	runValidators: true,
+	// });
+
+	// Bulk update for multiple product deferent price
+	/* {
+		"products": [
+			{
+				"id": "6322b419107bef27c8460770",
+				"data": {"price": 333}
+			},
+			{
+				"id": "6322bbc4f886271aac1f86fc",
+				"data": {"price": 222}
+			}
+		]
+	} */
+	const products = [];
+
+	data.products.forEach(product => {
+		products.push(Product.updateOne({ _id: product.id }, product.data));
 	});
+
+	const result = await Promise.all(products);
+	console.log(result);
+
 	return result;
 };
 
