@@ -1,7 +1,8 @@
 const Product = require("../models/Product");
 
-const getProductService = async () => {
-	const product = await Product.find({ status: { $ne: "out-of-stock" } });
+const getProductService = async query => {
+	// const product = await Product.find({ status: { $ne: "out-of-stock" } });
+	const product = await Product.find(query);
 	return product;
 };
 
@@ -74,7 +75,7 @@ const deleteProductByIdService = async id => {
 };
 
 const bulkDeleteProductService = async ids => {
-	const result = await Product.deleteMany({ _id: ids });
+	const result = await Product.deleteMany({});
 	return result;
 };
 

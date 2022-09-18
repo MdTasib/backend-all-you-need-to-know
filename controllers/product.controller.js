@@ -27,7 +27,19 @@ const getProduct = async (req, res, next) => {
 		 * Less then / less then or equal - $lt / $lte
 		 * if name is Dall/Chal {name: {$in: ["Dall", "Chal"]}}
 		 */
-		const product = await getProductService();
+		//  const product = await getProductService();
+
+		// EXCLUDE FIELDS FROM QUERY STRING ( ADVANCED )
+		const queryObject = { ...req.query };
+
+		// sort, page, limit -> exclude
+		const excludeFields = ["sort", "page", "limit"];
+		excludeFields.forEach(field => delete queryObject[field]);
+
+		// console.log("Original object", req.query);
+		// console.log("copy object", queryObject);
+
+		const product = await getProductService(queryObject);
 
 		res.status(200).json({
 			status: "sussess",
