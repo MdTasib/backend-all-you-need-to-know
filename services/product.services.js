@@ -10,7 +10,7 @@ const createProductService = async data => {
 	return product;
 };
 
-const updateProductService = async (id, data) => {
+const updateProductByIdService = async (id, data) => {
 	// Solution 1: before updating, check to validate like Schema
 	// const product = await Product.updateOne(
 	// 	{ _id: id },
@@ -68,9 +68,15 @@ const bulkUpdateProductService = async data => {
 	return result;
 };
 
+const deleteProductByIdService = async id => {
+	const result = await Product.deleteOne({ _id: id });
+	return result;
+};
+
 module.exports = {
 	getProductService,
 	createProductService,
-	updateProductService,
+	updateProductByIdService,
 	bulkUpdateProductService,
+	deleteProductByIdService,
 };
