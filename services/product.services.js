@@ -73,10 +73,16 @@ const deleteProductByIdService = async id => {
 	return result;
 };
 
+const bulkDeleteProductService = async ids => {
+	const result = await Product.deleteMany({ _id: ids });
+	return result;
+};
+
 module.exports = {
 	getProductService,
 	createProductService,
 	updateProductByIdService,
 	bulkUpdateProductService,
 	deleteProductByIdService,
+	bulkDeleteProductService,
 };
