@@ -1,8 +1,16 @@
 const Product = require("../models/Product");
 
-const getProductService = async query => {
+const getProductService = async (filters, queries) => {
 	// const product = await Product.find({ status: { $ne: "out-of-stock" } });
-	const product = await Product.find(query);
+	// const product = await Product.find({}).sort({ price: 1 });
+
+	// http://localhost:5000/api/v1/product?sort=price,quantity
+	// const product = await Product.find({}).sort(queries.sortBy);
+
+	// http://localhost:5000/api/v1/product?sort=price,quantity&fields=name,description
+	const product = await Product.find({})
+		.sort(queries.sortBy)
+		.select(queries.fields);
 	return product;
 };
 

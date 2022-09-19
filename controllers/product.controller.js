@@ -30,16 +30,27 @@ const getProduct = async (req, res, next) => {
 		//  const product = await getProductService();
 
 		// EXCLUDE FIELDS FROM QUERY STRING ( ADVANCED )
-		const queryObject = { ...req.query };
+		const filters = { ...req.query };
 
 		// sort, page, limit -> exclude
 		const excludeFields = ["sort", "page", "limit"];
-		excludeFields.forEach(field => delete queryObject[field]);
-
+		excludeFields.forEach(field => delete filters[field]);
 		// console.log("Original object", req.query);
-		// console.log("copy object", queryObject);
+		// console.log("copy object", filters);
 
-		const product = await getProductService(queryObject);
+		const queries = {};
+
+		if (req.query.sort) {
+			const sortBy = req.query.sort.split(",").join(" ");
+			queries.sortBy = sortBy;
+		}
+
+		if (req.query.fields) {
+			const fields = req.query.fields.split(",").join(" ");
+			queries.fields = fields;
+		}
+
+		const product = await getProductService(filters, queries);
 
 		res.status(200).json({
 			status: "sussess",
