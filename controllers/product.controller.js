@@ -30,13 +30,23 @@ const getProduct = async (req, res, next) => {
 		//  const product = await getProductService();
 
 		// EXCLUDE FIELDS FROM QUERY STRING ( ADVANCED )
-		const filters = { ...req.query };
+		let filters = { ...req.query };
 
 		// sort, page, limit -> exclude
 		const excludeFields = ["sort", "page", "limit"];
 		excludeFields.forEach(field => delete filters[field]);
 		// console.log("Original object", req.query);
 		// console.log("copy object", filters);
+
+		// Filtering with Operators
+		// http://localhost:5000/api/v1/product?price[lt]=50
+		let filtersString = JSON.stringify(filters);
+		filtersString = filtersString.replace(
+			/\b(gt|gte|lt|lte)\b/g,
+			match => `$${match}`
+		);
+
+		filters = JSON.parse(filtersString);
 
 		const queries = {};
 
