@@ -60,6 +60,14 @@ const getProduct = async (req, res, next) => {
 			queries.fields = fields;
 		}
 
+		if (req.query.page || req.query.limit) {
+			const { page = 1, limit = 10 } = req.query;
+
+			const skip = (page - 1) * Number(limit);
+			queries.skip = skip;
+			queries.limit = Number(limit);
+		}
+
 		const product = await getProductService(filters, queries);
 
 		res.status(200).json({
