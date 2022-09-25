@@ -1,9 +1,14 @@
 const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema.Types;
 
-// SCHEMA DESIGN
-const productSchema = mongoose.Schema(
+// STOCK SCHEMA DESIGN
+const stockSchema = mongoose.Schema(
 	{
+		productId: {
+			type: ObjectId,
+			required: true,
+			ref: "Product",
+		},
 		name: {
 			type: String,
 			required: [true, "Please provide a name for this product."],
@@ -49,6 +54,16 @@ const productSchema = mongoose.Schema(
 				},
 			},
 		],
+		price: {
+			type: Number,
+			required: true,
+			min: [0, "Product price can't be nagetive"],
+		},
+		quantity: {
+			type: Number,
+			required: true,
+			min: [0, "Product quantity can't be nagetive"],
+		},
 		category: {
 			type: String,
 			required: true,
@@ -64,6 +79,48 @@ const productSchema = mongoose.Schema(
 				required: true,
 			},
 		},
+		status: {
+			type: String,
+			enum: {
+				values: ["in-stock", "out-of-stock", "discontinued"],
+				message: "status can't be {VALUE}",
+			},
+		},
+		store: {
+			name: {
+				type: String,
+				trim: true,
+				required: [true, "Please provide a store name"],
+				lowercase: true,
+				enum: {
+					values: [
+						"chittagong",
+						"dhaka",
+						"khulna",
+						"rongpur",
+						"barishal",
+						"sylhet",
+					],
+					message: "{VALUE} is not a valid name",
+				},
+			},
+			id: {
+				type: ObjectId,
+				required: true,
+				ref: "Store",
+			},
+			suppliedBy: {
+				name: {
+					type: String,
+					trim: true,
+					required: [true, "Please provide a supplier name"],
+				},
+				id: {
+					type: ObjectId,
+					ref: "Supplier",
+				},
+			},
+		},
 	},
 	{
 		timestamps: true,
@@ -71,7 +128,7 @@ const productSchema = mongoose.Schema(
 );
 
 // MONGOOSE MIDDLEWARES FOR SAVEING DATA: PRE / POST
-productSchema.pre("save", function (next) {
+stockSchema.pre("save", function (next) {
 	console.log("Before product created".bgGreen);
 
 	if (this.quantity === 0) {
@@ -81,6 +138,6 @@ productSchema.pre("save", function (next) {
 });
 
 // MODAL
-const Product = mongoose.model("Product", productSchema);
+const Stock = mongoose.model("Product", stockSchema);
 
-module.exports = Product;
+module.exports = Stock;
