@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { ObjectId } = mongoose.Schema.Types;
 
 // SCHEMA DESIGN
 const productSchema = mongoose.Schema(
@@ -8,6 +9,7 @@ const productSchema = mongoose.Schema(
 			required: [true, "Please provide a name for this product."],
 			trim: true,
 			unique: [true, "Product must be unique"],
+			lowercase: true,
 			minLenght: [3, "Name must be al last 3 characters."],
 			maxLenght: [100, "Name is too large"],
 		},
@@ -15,55 +17,53 @@ const productSchema = mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		price: {
-			type: Number,
-			required: [true, "Please provide a price for this product"],
-			min: [0, "Price can't be negative."],
-		},
 		unit: {
 			type: String,
 			required: true,
 			enum: {
-				values: ["kg", "litre", "pcs"],
-				message: "unit value can't be {VALUE}, must be kg/litre/pcs",
+				values: ["kg", "litre", "pcs", "bag"],
+				message: "unit value can't be {VALUE}, must be kg/litre/pcs/bag",
 			},
 		},
-		quantity: {
-			type: Number,
-			required: true,
-			min: [0, "Quantity can't be negative."],
-			validate: {
-				validator: value => {
-					const isInteger = Number.isInteger(value);
-					if (isInteger) {
-						return true;
-					} else {
-						return false;
-					}
+		imageURLS: [
+			{
+				type: String,
+				required: true,
+				validate: {
+					validator: values => {
+						if (!Array.isArray(value)) {
+							return false;
+						}
+
+						let isValid = true;
+
+						values.forEach(url => {
+							if (!validator.isURL(url)) {
+								isValid = false;
+							}
+						});
+
+						return isValid;
+					},
+					message: "Please provide a valid image urls",
 				},
 			},
-			message: "Quantity must be an integer.",
-		},
-		status: {
+		],
+		category: {
 			type: String,
-			enum: {
-				values: ["in-stock", "out-of-stock", "discontinued"],
-				message: "status can't be {VALUE}",
+			required: true,
+		},
+		brand: {
+			name: {
+				type: String,
+				required: true,
+			},
+			id: {
+				type: ObjectId,
+				ref: "Brand",
+				required: true,
 			},
 		},
-		// supplier: {
-		// 	type: mongoose.Schema.Types.ObjectId,
-		// 	ref: "Supplier",
-		// },
-		// categories: [
-		// 	{
-		// 		name: {
-		// 			type: String,
-		// 			required: true,
-		// 		},
-		// 		_id: mongoose.Schema.Types.ObjectId,
-		// 	},
-		// ],
 	},
 	{
 		timestamps: true,
@@ -80,17 +80,6 @@ productSchema.pre("save", function (next) {
 
 	next();
 });
-
-// MONGOOSE MIDDLEWARES FOR SAVEING DATA: PRE / POST
-productSchema.post("save", function (doc, next) {
-	console.log("After product created".bgGreen);
-	next();
-});
-
-// INSTANCE METHODS - OPTIONAL
-productSchema.methods.logger = function () {
-	console.log(`Data saved for ${this.name}`.bgGreen);
-};
 
 // MODAL
 const Product = mongoose.model("Product", productSchema);
