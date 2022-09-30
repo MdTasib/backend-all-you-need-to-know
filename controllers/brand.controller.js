@@ -2,6 +2,7 @@ const {
 	createBrandService,
 	getBrandsService,
 	getBrandByIdService,
+	updateBrandService,
 } = require("../services/brand.services");
 
 const createBrand = async (req, res, next) => {
@@ -66,23 +67,23 @@ const getBrandById = async (req, res, next) => {
 const updateBrand = async (req, res, next) => {
 	try {
 		const { id } = req.params;
-		const result = await getBrandByIdService(id);
+		const result = await updateBrandService(id, req.body);
 
-		if (!result) {
+		if (!result.nModified) {
 			res.status(400).json({
 				status: "field",
-				message: "Couldn't get brand",
+				message: "Couldn't update brand",
 			});
 		}
 
 		res.status(200).json({
 			status: "success",
-			data: result,
+			message: "Brand updated successfully",
 		});
 	} catch (error) {
 		res.status(400).json({
 			status: "field",
-			message: "Couldn't get brand",
+			message: "Couldn't update brand",
 			error: error.message,
 		});
 	}

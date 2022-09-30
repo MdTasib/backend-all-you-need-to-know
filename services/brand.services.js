@@ -1,10 +1,24 @@
 const Brand = require("../models/Brand");
 
-const createBrandService = async data => await Brand.create(data);
+const getBrandsService = async () => {
+	const brands = await Brand.find({}).select("-products -suppliers");
+	return brands;
+};
 
-const getBrandsService = async () =>
-	await Brand.find({}).select("-products -suppliers");
+const createBrandService = async data => await Brand.create(data);
 
 const getBrandByIdService = async id => await Brand.findOne({ _id: id });
 
-module.exports = { createBrandService, getBrandsService, getBrandByIdService };
+const updateBrandService = async (id, data) => {
+	const result = await Brand.updateOne({ _id: id }, data, {
+		runValidators: true,
+	});
+	return result;
+};
+
+module.exports = {
+	createBrandService,
+	getBrandsService,
+	getBrandByIdService,
+	updateBrandService,
+};
