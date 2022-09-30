@@ -13,7 +13,7 @@ const categorySchema = mongoose.Schema(
 			unique: true,
 		},
 		description: String,
-		imageUrl: {
+		imageURL: {
 			type: String,
 			validate: [validator.isURL, "Please provide a valid URL"],
 		},
