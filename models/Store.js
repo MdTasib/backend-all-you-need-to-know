@@ -43,6 +43,6 @@ const storeSchema = mongoose.Schema(
 );
 
 // MODAL
-const Store = mongoose.model("Brand", storeSchema);
+const Store = mongoose.model("Store", storeSchema);
 
 module.exports = Store;

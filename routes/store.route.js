@@ -6,7 +6,7 @@ const {
 } = require("../controllers/store.controller");
 const router = express.Router();
 
-router.route("/store").post(createStore).get(getStores);
+router.route("/").post(createStore).get(getStores);
 router.route("/:id").get(getStoreById);
 
 module.exports = router;
