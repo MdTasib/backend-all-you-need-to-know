@@ -7,7 +7,10 @@ const getBrandsService = async () => {
 
 const createBrandService = async data => await Brand.create(data);
 
-const getBrandByIdService = async id => await Brand.findOne({ _id: id });
+const getBrandByIdService = async id => {
+	const brand = await Brand.findOne({ _id: id }).populate("products");
+	return brand;
+};
 
 const updateBrandService = async (id, data) => {
 	const result = await Brand.updateOne({ _id: id }, data, {

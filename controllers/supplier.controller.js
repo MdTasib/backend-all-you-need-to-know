@@ -3,7 +3,7 @@ const {
 	getSuppliersService,
 	getSupplierByIdService,
 	updateSupplierService,
-} = require("../services/brand.services");
+} = require("../services/supplier.services");
 
 const createSupplier = async (req, res, next) => {
 	try {
