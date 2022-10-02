@@ -8,16 +8,18 @@ app.use(express.json());
 app.use(cors());
 
 // ROUTES
-const productRouter = require("./routes/product.route");
-const brandRouter = require("./routes/brand.route");
-const storeRouter = require("./routes/store.route");
-const categoryRouter = require("./routes/category.route");
+const productRoute = require("./routes/product.route");
+const brandRoute = require("./routes/brand.route");
+const storeRoute = require("./routes/store.route");
+const categoryRoute = require("./routes/category.route");
+const supplierRoute = require("./routes/supplier.route");
 
 // ROUTES USE
-app.use("/api/v1/product", productRouter);
-app.use("/api/v1/brand", brandRouter);
-app.use("/api/v1/store", storeRouter);
-app.use("/api/v1/category", categoryRouter);
+app.use("/api/v1/product", productRoute);
+app.use("/api/v1/brand", brandRoute);
+app.use("/api/v1/store", storeRoute);
+app.use("/api/v1/category", categoryRoute);
+app.use("/api/v1/supplier", supplierRoute);
 
 app.get("/", (req, res) => {
 	res.send("Route is working! YaY!");
