@@ -1,4 +1,3 @@
-const Product = require("../models/Product");
 const {
 	getProductService,
 	createProductService,
@@ -85,11 +84,7 @@ const getProduct = async (req, res, next) => {
 
 const createProduct = async (req, res, next) => {
 	try {
-		// FIRST WAY FOR THE POST DATA - ( SAVE ) METHOD
 		const result = await createProductService(req.body);
-
-		// INSTANCE METHODS - OPTIONAL
-		result.logger();
 
 		res.status(200).json({
 			status: "success",
@@ -182,6 +177,16 @@ const bulkDeleteProducts = async (req, res, next) => {
 	}
 };
 
+const fileUpload = async (req, res) => {
+	try {
+		// SINGLE IMAGE UPLOAD
+		// res.status(200).json(req.file);
+
+		// MULTIPLE IMAGES UPLOAD
+		res.status(200).json(req.files);
+	} catch (error) {}
+};
+
 module.exports = {
 	getProduct,
 	createProduct,
@@ -189,4 +194,5 @@ module.exports = {
 	bulkUpdateProduct,
 	deleteProductById,
 	bulkDeleteProducts,
+	fileUpload,
 };
