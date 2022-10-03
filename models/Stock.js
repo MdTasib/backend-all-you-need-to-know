@@ -30,7 +30,7 @@ const stockSchema = mongoose.Schema(
 				message: "unit value can't be {VALUE}, must be kg/litre/pcs/bag",
 			},
 		},
-		imageURLS: [
+		imageURLs: [
 			{
 				type: String,
 				required: true,
@@ -101,37 +101,39 @@ const stockSchema = mongoose.Schema(
 				lowercase: true,
 				enum: {
 					values: [
-						"chittagong",
 						"dhaka",
-						"khulna",
-						"rongpur",
-						"barishal",
+						"chattogram",
+						"rajshahi",
 						"sylhet",
+						"khulna",
+						"barishal",
+						"rangpur",
+						"mymensingh",
 					],
 					message: "{VALUE} is not a valid name",
 				},
-			},
-			sellCount: {
-				type: Number,
-				default: 0,
-				min: 0,
 			},
 			id: {
 				type: ObjectId,
 				required: true,
 				ref: "Store",
 			},
-			suppliedBy: {
-				name: {
-					type: String,
-					trim: true,
-					required: [true, "Please provide a supplier name"],
-				},
-				id: {
-					type: ObjectId,
-					ref: "Supplier",
-				},
+		},
+		suppliedBy: {
+			name: {
+				type: String,
+				trim: true,
+				required: [true, "Please provide a supplier name"],
 			},
+			id: {
+				type: ObjectId,
+				ref: "Supplier",
+			},
+		},
+		sellCount: {
+			type: Number,
+			default: 0,
+			min: 0,
 		},
 	},
 	{

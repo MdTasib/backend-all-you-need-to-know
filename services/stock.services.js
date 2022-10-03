@@ -22,6 +22,14 @@ const getStockService = async (filters, queries) => {
 	return { totalStocks, pageCount, stocks };
 };
 
+const getStockByIdService = async id => {
+	const stock = await Stock.findOne({ _id: id })
+		.populate("brand.id")
+		.populate("store.id")
+		.populate("suppliedBy.id");
+	return stock;
+};
+
 const createStockService = async data => {
 	const stock = await Stock.create(data);
 	return stock;
@@ -63,4 +71,5 @@ module.exports = {
 	bulkUpdateStockService,
 	deleteStockByIdService,
 	bulkDeleteStockService,
+	getStockByIdService,
 };

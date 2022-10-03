@@ -5,6 +5,7 @@ const {
 	bulkUpdateStockService,
 	deleteStockByIdService,
 	bulkDeleteStockService,
+	getStockByIdService,
 } = require("../services/stock.services");
 
 const getStock = async (req, res) => {
@@ -54,6 +55,31 @@ const getStock = async (req, res) => {
 		res.status(400).json({
 			status: "Failed",
 			message: "Can't get data",
+			error: error.message,
+		});
+	}
+};
+
+const getStockById = async (req, res, next) => {
+	try {
+		const { id } = req.params;
+		const result = await getStockByIdService(id);
+
+		if (!result) {
+			return res.status(400).json({
+				status: "field",
+				message: "Couldn't get stock",
+			});
+		}
+
+		res.status(200).json({
+			status: "success",
+			data: result,
+		});
+	} catch (error) {
+		res.status(400).json({
+			status: "field",
+			message: "Couldn't get stock",
 			error: error.message,
 		});
 	}
@@ -161,4 +187,5 @@ module.exports = {
 	bulkUpdateStock,
 	deleteStockById,
 	bulkDeleteStocks,
+	getStockById,
 };
