@@ -1,4 +1,3 @@
-const Product = require("../models/Product");
 const {
 	getProductService,
 	createProductService,
@@ -85,11 +84,7 @@ const getProduct = async (req, res, next) => {
 
 const createProduct = async (req, res, next) => {
 	try {
-		// FIRST WAY FOR THE POST DATA - ( SAVE ) METHOD
 		const result = await createProductService(req.body);
-
-		// INSTANCE METHODS - OPTIONAL
-		result.logger();
 
 		res.status(200).json({
 			status: "success",

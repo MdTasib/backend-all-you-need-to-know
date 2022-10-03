@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema.Types;
+const validator = require("validator");
 
 // STOCK SCHEMA DESIGN
 const stockSchema = mongoose.Schema(
@@ -13,7 +14,6 @@ const stockSchema = mongoose.Schema(
 			type: String,
 			required: [true, "Please provide a name for this product."],
 			trim: true,
-			unique: [true, "Product must be unique"],
 			lowercase: true,
 			minLenght: [3, "Name must be al last 3 characters."],
 			maxLenght: [100, "Name is too large"],
@@ -34,26 +34,33 @@ const stockSchema = mongoose.Schema(
 			{
 				type: String,
 				required: true,
-				validate: {
-					validator: values => {
-						if (!Array.isArray(value)) {
-							return false;
-						}
-
-						let isValid = true;
-
-						values.forEach(url => {
-							if (!validator.isURL(url)) {
-								isValid = false;
-							}
-						});
-
-						return isValid;
-					},
-					message: "Please provide a valid image urls",
-				},
+				validate: [validator.isURL, "Please provide a valid url(s)"],
 			},
 		],
+		// imageURLS: [
+		// 	{
+		// 		type: String,
+		// 		required: true,
+		// 		validate: {
+		// 			validator: values => {
+		// 				if (!Array.isArray(value)) {
+		// 					return false;
+		// 				}
+
+		// 				let isValid = true;
+
+		// 				values.forEach(url => {
+		// 					if (!validator.isURL(url)) {
+		// 						isValid = false;
+		// 					}
+		// 				});
+
+		// 				return isValid;
+		// 			},
+		// 			message: "Please provide a valid image urls",
+		// 		},
+		// 	},
+		// ],
 		price: {
 			type: Number,
 			required: true,
@@ -104,6 +111,11 @@ const stockSchema = mongoose.Schema(
 					message: "{VALUE} is not a valid name",
 				},
 			},
+			sellCount: {
+				type: Number,
+				default: 0,
+				min: 0,
+			},
 			id: {
 				type: ObjectId,
 				required: true,
@@ -138,6 +150,6 @@ stockSchema.pre("save", function (next) {
 });
 
 // MODAL
-const Stock = mongoose.model("Product", stockSchema);
+const Stock = mongoose.model("Stock", stockSchema);
 
 module.exports = Stock;

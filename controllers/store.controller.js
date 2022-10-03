@@ -1,4 +1,3 @@
-const Store = require("../models/Store");
 const {
 	createStoreService,
 	getStoreService,
