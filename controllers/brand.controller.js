@@ -45,7 +45,7 @@ const getBrandById = async (req, res, next) => {
 		const result = await getBrandByIdService(id);
 
 		if (!result) {
-			res.status(400).json({
+			return res.status(400).json({
 				status: "field",
 				message: "Couldn't get brand",
 			});

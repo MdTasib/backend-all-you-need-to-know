@@ -1,6 +1,6 @@
 [
 	{
-		"productId": "633476cce0259f4febbfc437",
+		"productId": "633a67585789f311087e12ee",
 		"name": "Pran Chinigura Aromatic Rice - 5kg Bag",
 		"description": "Pran Chinigura Aromatic Rice (Polau). Fresh and Clean, Vacuum Packed. Pran Chinigura Rice can be use in Biriyani, Polau, Firni, Kheer, Khichuri.",
 		"imageURLs": [
@@ -14,20 +14,20 @@
 		"category": "Rice",
 		"brand": {
 			"name": "Pran",
-			"id": "633177da56be8326a827b812"
+			"id": "63396ca45389523b14699aa3"
 		},
 		"store": {
 			"name": "chattogram",
-			"id": "633412b419894112041a9018"
+			"id": "633a6acb00adda24840bcf7a"
 		},
 		"suppliedBy": {
 			"name": "mezbaul abedin persian",
-			"id": "63341c683d8c200adc31b6b6"
+			"id": "633979b65ff7683bfc2fdb38"
 		},
 		"sellCount": 50
 	},
 	{
-		"productId": "633476cce0259f4febbfc438",
+		"productId": "633a676d5789f311087e12f1",
 		"name": "Pran Chinigura Aromatic Rice - 50kg",
 		"description": "Pran Chinigura Aromatic Rice (Polau). Fresh and Clean, Vacuum Packed. Pran Chinigura Rice can be use in Biriyani, Polau, Firni, Kheer, Khichuri.",
 		"imageURLs": [
@@ -37,22 +37,23 @@
 		"unit": "bag",
 		"price": "1460",
 		"category": "Rice",
+		"quantity": 1100,
 		"brand": {
 			"name": "Pran",
-			"id": "633177da56be8326a827b812"
+			"id": "63396ca45389523b14699aa3"
 		},
 		"store": {
 			"name": "chattogram",
-			"id": "633412b419894112041a9018"
+			"id": "633a6acb00adda24840bcf7a"
 		},
 		"suppliedBy": {
 			"name": "mezbaul abedin persian",
-			"id": "63341c683d8c200adc31b6b6"
+			"id": "633979b65ff7683bfc2fdb38"
 		},
 		"sellCount": 10
 	},
 	{
-		"productId": "633476cce0259f4febbfc439",
+		"productId": "633a67785789f311087e12f4",
 		"name": "Pran Nazirshail Rice - 5kg",
 		"description": "Pran Nazirshail Rice. Fresh and Clean, Vacuum Packed. Pran Chinigura Rice can be use in Biriyani, Polau, Firni, Kheer, Khichuri.",
 		"imageURLs": [
@@ -62,22 +63,23 @@
 		"unit": "bag",
 		"price": "378",
 		"category": "Rice",
+		"quantity": 1000,
 		"brand": {
 			"name": "Pran",
-			"id": "633177da56be8326a827b812"
+			"id": "63396ca45389523b14699aa3"
 		},
 		"store": {
 			"name": "chattogram",
-			"id": "633412b419894112041a9018"
+			"id": "633a6acb00adda24840bcf7a"
 		},
 		"suppliedBy": {
 			"name": "mezbaul abedin persian",
-			"id": "63341c683d8c200adc31b6b6"
+			"id": "633979b65ff7683bfc2fdb38"
 		},
 		"sellCount": 90
 	},
 	{
-		"productId": "633476cce0259f4febbfc43a",
+		"productId": "633a67ad5789f311087e12f9",
 		"name": "Fresh Chinigura Rice",
 		"description": "Fresh Chinigura Rice. Fresh and Clean, Vacuum Packed. Fresh Chinigura Rice can be use in Biriyani, Polau, Firni, Kheer, Khichuri.",
 		"imageURLs": [
@@ -86,22 +88,23 @@
 		"unit": "kg",
 		"price": "357",
 		"category": "Rice",
+		"quantity": 1000,
 		"brand": {
 			"name": "Fresh",
-			"id": "6329f32f40244f2a44c85741"
+			"id": "6336b5d7c2ea1f00f0e45e4f"
 		},
 		"store": {
 			"name": "chattogram",
-			"id": "633412b419894112041a9018"
+			"id": "633a6acb00adda24840bcf7a"
 		},
 		"suppliedBy": {
 			"name": "rasel ahmed",
-			"id": "63341cd73d8c200adc31b6bd"
+			"id": "633979f05ff7683bfc2fdb3e"
 		},
 		"sellCount": 17
 	},
 	{
-		"productId": "633476cce0259f4febbfc43b",
+		"productId": "633a67b85789f311087e12fc",
 		"name": "ACI Pure Miniket Rice Premium",
 		"description": "ACI Pure Miniket Rice Premium. Fresh and Clean, Vacuum Packed. ACI Pure Miniket Rice Premium can be use in Biriyani, Polau, Firni, Kheer, Khichuri.",
 		"imageURLs": [
@@ -110,22 +113,23 @@
 		"unit": "kg",
 		"price": "257",
 		"category": "Rice",
+		"quantity": 1700,
 		"brand": {
 			"name": "ACI",
-			"id": "6329f49f9c503f0b7438b25c"
+			"id": "6336b5ccc2ea1f00f0e45e4d"
 		},
 		"store": {
 			"name": "chattogram",
-			"id": "633412b419894112041a9018"
+			"id": "633a6acb00adda24840bcf7a"
 		},
 		"suppliedBy": {
-			"name": "sagor biswas",
-			"id": "63347a1f92cc9521ec42370d"
+			"name": "abdullah al fahim",
+			"id": "633979da5ff7683bfc2fdb3a"
 		},
 		"sellCount": 103
 	},
 	{
-		"productId": "633476cce0259f4febbfc43c",
+		"productId": "633a67c25789f311087e12ff",
 		"name": "Fresh Fortified Soyabean Oil - 5ltr",
 		"description": "Fresh Fortified Soyabean Oil follows 3 steps of refining process-Perfect Degumming & Neutralization, Balanced De-colorization and Five steps Deodorization to ensure right ratio of Omega 3 & 6 and intact Beta-carotene in Soyabean Oil. Fresh soyabean oil contain vitamin A. Its fresh and healthy.",
 		"imageURLs": [
@@ -134,22 +138,23 @@
 		"unit": "litre",
 		"price": "157",
 		"category": "Oil",
+		"quantity": 1000,
 		"brand": {
 			"name": "Fresh",
-			"id": "6329f32f40244f2a44c85741"
+			"id": "6336b5d7c2ea1f00f0e45e4f"
 		},
 		"store": {
 			"name": "chattogram",
-			"id": "633412b419894112041a9018"
+			"id": "633a6acb00adda24840bcf7a"
 		},
 		"suppliedBy": {
 			"name": "rasel ahmed",
-			"id": "63341cd73d8c200adc31b6bd"
+			"id": "633979f05ff7683bfc2fdb3e"
 		},
 		"sellCount": 20
 	},
 	{
-		"productId": "633476cce0259f4febbfc43d",
+		"productId": "633a67cc5789f311087e1302",
 		"name": "Rupchanda Fortified Soyabean Oil - 5ltr",
 		"description": "First Vitamin A fortified Soyabean Oil. Increases immunity. Strengthens bone & teeth.",
 		"imageURLs": [
@@ -158,22 +163,23 @@
 		"unit": "litre",
 		"price": "450",
 		"category": "Oil",
+		"quantity": 900,
 		"brand": {
 			"name": "Rupchanda",
-			"id": "6329f4a69c503f0b7438b25e"
+			"id": "6336b5dec2ea1f00f0e45e51"
 		},
 		"store": {
 			"name": "chattogram",
-			"id": "633412b419894112041a9018"
+			"id": "633a6acb00adda24840bcf7a"
 		},
 		"suppliedBy": {
-			"name": "anisul islam",
-			"id": "63347a6e92cc9521ec423711"
+			"name": "jhankar mahbub",
+			"id": "633979e75ff7683bfc2fdb3c"
 		},
 		"sellCount": 50
 	},
 	{
-		"productId": "633476cce0259f4febbfc43e",
+		"productId": "633a67d65789f311087e1305",
 		"name": "Fresh Refined Sugar",
 		"description": "Fresh Refined sugar is a modern processes of without touching hand to protect the health of assurance. Fresh refined sugar is completely acid, fecal residues free and neat and clean, healthy, granulated sugar.",
 		"imageURLs": [
@@ -182,40 +188,41 @@
 		"unit": "kg",
 		"price": "350",
 		"category": "Sugar",
+		"quantity": 980,
 		"brand": {
 			"name": "Fresh",
-			"id": "6329f32f40244f2a44c85741"
+			"id": "6336b5d7c2ea1f00f0e45e4f"
 		},
 		"store": {
 			"name": "chattogram",
-			"id": "633412b419894112041a9018"
+			"id": "633a6acb00adda24840bcf7a"
 		},
 		"suppliedBy": {
 			"name": "rasel ahmed",
-			"id": "63341cd73d8c200adc31b6bd"
+			"id": "633979f05ff7683bfc2fdb3e"
 		},
 		"sellCount": 11
 	},
 	{
 		"productId": "633476cce0259f4febbfc43f",
-		"name": "Teer Refined Sugar",
-		"description": "Teer Refined sugar is a modern processes of without touching hand to protect the health of assurance. Fresh refined sugar is completely acid, fecal residues free and neat and clean, healthy, granulated sugar.",
+		"name": "ACI Refined Sugar",
+		"description": "Aci Refined sugar is a modern processes of without touching hand to protect the health of assurance. Fresh refined sugar is completely acid, fecal residues free and neat and clean, healthy, granulated sugar.",
 		"imageURLs": [
 			"https://chaldn.com/_mpimage/fresh-refined-sugar-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113128&q=best&v=1&m=400&webp=1"
 		],
 		"unit": "kg",
 		"category": "Sugar",
 		"brand": {
-			"name": "Teer",
-			"id": "63341b10ff782a369881024b"
+			"name": "ACI",
+			"id": "6336b5ccc2ea1f00f0e45e4d"
 		},
 		"store": {
 			"name": "chattogram",
-			"id": "633412b419894112041a9018"
+			"id": "633a6acb00adda24840bcf7a"
 		},
 		"suppliedBy": {
-			"name": "shahbaj khan toky",
-			"id": "63347a4392cc9521ec42370f"
+			"name": "abdullah al fahim",
+			"id": "633979da5ff7683bfc2fdb3a"
 		}
 	},
 
@@ -234,15 +241,15 @@
 		"category": "Rice",
 		"brand": {
 			"name": "Pran",
-			"id": "633177da56be8326a827b812"
+			"id": "63396ca45389523b14699aa3"
 		},
 		"store": {
 			"name": "dhaka",
-			"id": "63316b54df4cc92bd0d74f2d"
+			"id": "633a6a625aa1e82edcf5336f"
 		},
 		"suppliedBy": {
-			"name": "razu biswas",
-			"id": "633479c792cc9521ec42370b"
+			"name": "mezbaul abedin persian",
+			"id": "633979b65ff7683bfc2fdb38"
 		},
 		"sellCount": 50
 	},
@@ -259,15 +266,15 @@
 		"category": "Rice",
 		"brand": {
 			"name": "Pran",
-			"id": "633177da56be8326a827b812"
+			"id": "63396ca45389523b14699aa3"
 		},
 		"store": {
 			"name": "dhaka",
-			"id": "63316b54df4cc92bd0d74f2d"
+			"id": "633a6a625aa1e82edcf5336f"
 		},
 		"suppliedBy": {
-			"name": "razu biswas",
-			"id": "633479c792cc9521ec42370b"
+			"name": "mezbaul abedin persian",
+			"id": "633979b65ff7683bfc2fdb38"
 		},
 		"sellCount": 10
 	},
@@ -284,15 +291,15 @@
 		"category": "Rice",
 		"brand": {
 			"name": "Pran",
-			"id": "633177da56be8326a827b812"
+			"id": "63396ca45389523b14699aa3"
 		},
 		"store": {
 			"name": "dhaka",
-			"id": "63316b54df4cc92bd0d74f2d"
+			"id": "633a6a625aa1e82edcf5336f"
 		},
 		"suppliedBy": {
-			"name": "razu biswas",
-			"id": "633479c792cc9521ec42370b"
+			"name": "mezbaul abedin persian",
+			"id": "633979b65ff7683bfc2fdb38"
 		},
 		"sellCount": 90
 	},
@@ -308,15 +315,15 @@
 		"category": "Rice",
 		"brand": {
 			"name": "Fresh",
-			"id": "6329f32f40244f2a44c85741"
+			"id": "6336b5d7c2ea1f00f0e45e4f"
 		},
 		"store": {
 			"name": "dhaka",
-			"id": "63316b54df4cc92bd0d74f2d"
+			"id": "633a6a625aa1e82edcf5336f"
 		},
 		"suppliedBy": {
-			"name": "shakil ahmed atik",
-			"id": "6334799092cc9521ec423707"
+			"name": "rasel ahmed",
+			"id": "633979f05ff7683bfc2fdb3e"
 		},
 		"sellCount": 17
 	},
@@ -332,15 +339,15 @@
 		"category": "Rice",
 		"brand": {
 			"name": "ACI",
-			"id": "6329f49f9c503f0b7438b25c"
+			"id": "6336b5ccc2ea1f00f0e45e4d"
 		},
 		"store": {
 			"name": "dhaka",
-			"id": "63316b54df4cc92bd0d74f2d"
+			"id": "633a6a625aa1e82edcf5336f"
 		},
 		"suppliedBy": {
-			"name": "mir hussain",
-			"id": "6334794f92cc9521ec423705"
+			"name": "abdullah al fahim",
+			"id": "633979da5ff7683bfc2fdb3a"
 		},
 		"sellCount": 103
 	},
@@ -356,15 +363,15 @@
 		"category": "Oil",
 		"brand": {
 			"name": "Fresh",
-			"id": "6329f32f40244f2a44c85741"
+			"id": "6336b5d7c2ea1f00f0e45e4f"
 		},
 		"store": {
 			"name": "dhaka",
-			"id": "63316b54df4cc92bd0d74f2d"
+			"id": "633a6a625aa1e82edcf5336f"
 		},
 		"suppliedBy": {
-			"name": "shakil ahmed atik",
-			"id": "6334799092cc9521ec423707"
+			"name": "rasel ahmed",
+			"id": "633979f05ff7683bfc2fdb3e"
 		},
 		"sellCount": 20
 	},
@@ -380,15 +387,15 @@
 		"category": "Oil",
 		"brand": {
 			"name": "Rupchanda",
-			"id": "6329f4a69c503f0b7438b25e"
+			"id": "6336b5dec2ea1f00f0e45e51"
 		},
 		"store": {
 			"name": "dhaka",
-			"id": "63316b54df4cc92bd0d74f2d"
+			"id": "633a6a625aa1e82edcf5336f"
 		},
 		"suppliedBy": {
 			"name": "jhankar mahbub",
-			"id": "63341ccb3d8c200adc31b6bb"
+			"id": "633979e75ff7683bfc2fdb3c"
 		},
 		"sellCount": 50
 	},
@@ -404,38 +411,38 @@
 		"category": "Sugar",
 		"brand": {
 			"name": "Fresh",
-			"id": "6329f32f40244f2a44c85741"
+			"id": "6336b5d7c2ea1f00f0e45e4f"
 		},
 		"store": {
 			"name": "dhaka",
-			"id": "63316b54df4cc92bd0d74f2d"
+			"id": "633a6a625aa1e82edcf5336f"
 		},
 		"suppliedBy": {
-			"name": "shakil ahmed atik",
-			"id": "6334799092cc9521ec423707"
+			"name": "rasel ahmed",
+			"id": "633979f05ff7683bfc2fdb3e"
 		},
 		"sellCount": 11
 	},
 	{
 		"productId": "633476cce0259f4febbfc43f",
-		"name": "Teer Refined Sugar",
-		"description": "Teer Refined sugar is a modern processes of without touching hand to protect the health of assurance. Fresh refined sugar is completely acid, fecal residues free and neat and clean, healthy, granulated sugar.",
+		"name": "ACI Refined Sugar",
+		"description": "ACI Refined sugar is a modern processes of without touching hand to protect the health of assurance. Fresh refined sugar is completely acid, fecal residues free and neat and clean, healthy, granulated sugar.",
 		"imageURLs": [
 			"https://chaldn.com/_mpimage/fresh-refined-sugar-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113128&q=best&v=1&m=400&webp=1"
 		],
 		"unit": "kg",
 		"category": "Sugar",
 		"brand": {
-			"name": "Teer",
-			"id": "63341b10ff782a369881024b"
+			"name": "ACI",
+			"id": "6336b5ccc2ea1f00f0e45e4d"
 		},
 		"store": {
 			"name": "dhaka",
-			"id": "63316b54df4cc92bd0d74f2d"
+			"id": "633a6a625aa1e82edcf5336f"
 		},
 		"suppliedBy": {
 			"name": "abdullah al fahim",
-			"id": "63341ca23d8c200adc31b6b9"
+			"id": "633979da5ff7683bfc2fdb3a"
 		}
 	}
 ]
