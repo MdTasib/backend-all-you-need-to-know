@@ -99,6 +99,11 @@ userSchema.pre("save", function (next) {
 	next();
 });
 
+userSchema.methods.comparePassword = function (password, hashPassword) {
+	const isPasswordValid = bcrypt.compare(password, hashPassword);
+	return isPasswordValid;
+};
+
 module.exports = User;
 
 /*
