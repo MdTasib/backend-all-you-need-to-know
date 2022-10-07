@@ -74,7 +74,7 @@ const userSchema = mongoose.Schema(
 		},
 		status: {
 			type: String,
-			default: "inactive",
+			default: "active",
 			enum: ["active", "inactive", "blocked"],
 		},
 
@@ -87,8 +87,6 @@ const userSchema = mongoose.Schema(
 	}
 );
 
-const User = mongoose.model("User", userSchema);
-
 userSchema.pre("save", function (next) {
 	const password = this.password;
 	const hashedPassword = bcrypt.hashSync(password);
@@ -99,16 +97,23 @@ userSchema.pre("save", function (next) {
 	next();
 });
 
+userSchema.methods.comparePassword = function (password, hash) {
+	const isPasswordValid = bcrypt.compareSync(password, hash);
+	return isPasswordValid;
+};
+
+const User = mongoose.model("User", userSchema);
+
 module.exports = User;
 
 /*
 
 {
-    "email": "mezba1@test.com",
-    "password": "mezba123456#A",
-    "confirmPassword": "mezba123456#A",
-    "firstName": "Mezbaul Abedin",
-    "lastName": "Forhan",
+"email": "test@test.com",
+    "password": "test123@#ABC",
+    "confirmPassword": "test123@#ABC",
+    "firstName": "test",
+    "lastName": "user",
     "shippingAddress": "944 osthir Street",
     "presentAddress": "944 osthir Street",
     "permanentAddress": "944 Russell Street",
