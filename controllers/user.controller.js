@@ -1,4 +1,5 @@
 const { singupService, findUserByEmail } = require("../services/user.services");
+const { generateToken } = require("../utils/token");
 
 const singup = async (req, res) => {
 	try {
@@ -71,10 +72,15 @@ const login = async (req, res) => {
 			});
 		}
 
-		//
+		const token = generateToken(user);
+
+		// REMOVE PASSWORD
+		const { password: pwd, ...others } = user.toObject();
+
 		res.status(200).json({
 			status: "success",
 			message: "login successfully",
+			data: { others, token },
 		});
 	} catch (error) {
 		res.status(500).json({

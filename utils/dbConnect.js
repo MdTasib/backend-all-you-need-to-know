@@ -1,3 +1,9 @@
+/**
+ *
+ * WITHOUT MONGOOSE
+ *
+ */
+
 const { MongoClient } = require("mongodb");
 const connectionString = process.env.DATABASE;
 const client = new MongoClient(connectionString, {
