@@ -91,4 +91,20 @@ const login = async (req, res) => {
 	}
 };
 
-module.exports = { singup, login };
+const getMe = async (req, res) => {
+	try {
+		const user = await findUserByEmail(req.user?.email);
+
+		res.status(200).json({
+			status: "success",
+			data: user,
+		});
+	} catch (error) {
+		res.status(500).json({
+			status: "fail",
+			error,
+		});
+	}
+};
+
+module.exports = { singup, login, getMe };
