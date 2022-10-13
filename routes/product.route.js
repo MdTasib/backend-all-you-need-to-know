@@ -1,5 +1,4 @@
 const express = require("express");
-const multer = require("multer");
 const {
 	getProduct,
 	createProduct,
@@ -9,7 +8,9 @@ const {
 	bulkDeleteProducts,
 	fileUpload,
 } = require("../controllers/product.controller");
+const authorization = require("../middlewares/authorization");
 const uploader = require("../middlewares/uploader");
+const verifyToken = require("../middlewares/verifyToken");
 const router = express.Router();
 
 // FILE UPLOAD
@@ -29,7 +30,10 @@ router.post("/file-upload", uploader.array("image"), fileUpload);
 router.route("/bulk-update").patch(bulkUpdateProduct);
 router.route("/bulk-delete").delete(bulkDeleteProducts);
 
-router.route("/").get(getProduct).post(createProduct);
+router
+	.route("/")
+	.get(getProduct)
+	.post(verifyToken, authorization("admin", "store-manager"), createProduct);
 
 router.route("/:id").patch(updateProductById).delete(deleteProductById);
 

@@ -1,9 +1,18 @@
 const { singupService, findUserByEmail } = require("../services/user.services");
+const { sendMailWithMailgun } = require("../utils/email");
 const { generateToken } = require("../utils/token");
 
 const singup = async (req, res) => {
 	try {
 		const user = await singupService(req.body);
+
+		const mailData = {
+			to: [user.email],
+			subject: "Verify your account",
+			text: "Thank you",
+		};
+
+		sendMailWithMailgun(mailData);
 
 		res.status(200).json({
 			status: "success",
@@ -91,4 +100,32 @@ const login = async (req, res) => {
 	}
 };
 
-module.exports = { singup, login };
+const getMe = async (req, res) => {
+	try {
+		const user = await findUserByEmail(req.user?.email);
+
+		res.status(200).json({
+			status: "success",
+			data: user,
+		});
+	} catch (error) {
+		res.status(500).json({
+			status: "fail",
+			error,
+		});
+	}
+};
+
+module.exports = { singup, login, getMe };
+
+// {
+// 	"role": "admin",
+// 	"status": "active",
+// 	"email": "programmer442@gmail.com",
+// 	"password": "test@TEST123",
+//  "confirmPassword": "test@TEST123",
+// 	"firstName": "md",
+// 	"lastName": "tasib",
+// 	"shippingAddress": "fatick",
+// 	"imageURL": "https://i.ibb.co/WnFSs9Y/unnamed.webp"
+// }
